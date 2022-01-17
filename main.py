@@ -1,3 +1,5 @@
+# How many letters deep should we go?
+depth = 9
 # Get the words
 import requests
 url = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
@@ -53,23 +55,33 @@ for word in five_letter_words:
 
 final_table = sorted(frequency_table.items(), key=lambda item: item[1], reverse=True)
 
-last_string = ""
-for x, y in final_table[:7]:
-    last_string = last_string+x
-
 # Score each word
 winners = []
 
 def score_word(word):
     score = 0
-    for x, y in final_table[:7]:
+    for x, y in final_table[:depth]:
         if x in word:
             score = score + 1
     return score
 
+def check_anagram(word1, word2):
+    if(sorted(word1) == sorted(word)):
+        return True
+    else:
+        return False
+    
 for word in five_letter_words:
+    anagram = False
     word_score = score_word(word)
     if word_score == 5:
-        winners.append(word)
-
-print(winners)
+        if len(winners) == 0:
+            winners.append(word)
+        else:
+            for winner in winners:
+                result = check_anagram(word, winner)
+                if not result:
+                    anagram = True
+                    print(word, winner)
+            if not anagram:
+                winners.append(word)
