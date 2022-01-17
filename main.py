@@ -74,3 +74,4 @@ for word in five_letter_words:
     if word_score == 5:
         winners.append(word)
 
+print(winners)
