@@ -3,6 +3,8 @@ A quick 5-letter word suggestion for WORDLE
 
 This script boils down a word list into a new list of words with the most popular letters. This is helpful in choosing your first word guess in your daily WORDLE.
 
+https://www.powerlanguage.co.uk/wordle/
+
 Example output:
 ['aeons',
  'aeron',
