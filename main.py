@@ -15,8 +15,6 @@ for word in words:
     if len(str(filtered_word)) == 5 and filtered_word not in five_letter_words:
         five_letter_words.append(filtered_word)
 
-import time as t
-
 # Count each letter
 
 frequency_table = {
