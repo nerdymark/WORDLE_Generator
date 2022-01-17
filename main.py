@@ -1,5 +1,5 @@
 # How many letters deep should we go?
-depth = 9
+depth = 7
 # Get the words
 import requests
 url = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt"
@@ -66,22 +66,18 @@ def score_word(word):
     return score
 
 def check_anagram(word1, word2):
-    if(sorted(word1) == sorted(word)):
+    if(sorted(word1) == sorted(word2)):
         return True
     else:
         return False
     
 for word in five_letter_words:
-    anagram = False
     word_score = score_word(word)
-    if word_score == 5:
+    if word_score >= 5:
         if len(winners) == 0:
             winners.append(word)
         else:
             for winner in winners:
                 result = check_anagram(word, winner)
-                if not result:
-                    anagram = True
-                    print(word, winner)
-            if not anagram:
-                winners.append(word)
+                if not result and word not in winners:
+                    winners.append(word)
