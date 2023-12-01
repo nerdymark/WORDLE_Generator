@@ -86,3 +86,5 @@ for word in five_letter_words:
                 result = check_anagram(word, winner)
                 if not result and word not in winners:
                     winners.append(word)
+
+print(winners)
