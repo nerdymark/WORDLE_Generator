@@ -84,7 +84,7 @@ for word in five_letter_words:
         else:
             for winner in winners:
                 result = check_anagram(word, winner)
-                if not result and word not in winners:
+                if not result and word not in winners and word not in used_words:
                     winners.append(word)
 
 print(winners)
